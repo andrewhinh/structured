@@ -2,6 +2,9 @@
 
 Function extraction from docs.
 
+## Stack
+- [Together.ai](https://together.ai/) for fine-tuning + inference.
+
 ## Setup
 
 1. Install conda if necessary:
