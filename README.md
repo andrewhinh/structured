@@ -32,3 +32,11 @@ Function extraction from docs.
     ```bash
     export $(cat .env | xargs)
     ```
+
+4. To grab the related documentations that we are interested in, 
+
+```bash
+git clone https://github.com/unknownue/PyTorch.docs.git
+```
+
+which contains offline docs for pytorch, numpy, etc.
