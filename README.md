@@ -3,6 +3,7 @@
 Function extraction from docs.
 
 ## Stack
+
 - [Together.ai](https://together.ai/) for fine-tuning + inference.
 
 ## Setup
@@ -26,4 +27,8 @@ Function extraction from docs.
     # If on Windows, the last two lines probably won't work. Check out this guide for more info: https://datatofish.com/add-python-to-windows-path/
     ```
 
-3. Create a `.env` file using `.env.template` as a reference.
+3. Create a `.env` file using `.env.template` as a reference and export the variables:
+
+    ```bash
+    export $(cat .env | xargs)
+    ```
