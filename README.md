@@ -1,10 +1,11 @@
 # structured
 
-Function extraction from docs.
+An LLM for function extraction from Python docs.
 
 ## Stack
 
 - [Together.ai](https://together.ai/) for fine-tuning + inference.
+- [Poe](https://poe.com/) for front-end.
 
 ## Setup
 
@@ -33,10 +34,55 @@ Function extraction from docs.
     export $(cat .env | xargs)
     ```
 
-4. To grab the related documentations that we are interested in, 
+## Fine-tuning
+
+Grab the relevant documentations which contains offline docs for pytorch, numpy, etc.:
 
 ```bash
 git clone https://github.com/unknownue/PyTorch.docs.git
 ```
 
-which contains offline docs for pytorch, numpy, etc.
+1. Create the dataset:
+
+    ```bash
+    make create-dataset
+    # Resulting file: data.jsonl
+    ```
+
+2. Upload the dataset to Together.ai:
+
+    ```bash
+    together files upload data.jsonl
+    # Resulting file ID: <FILE-ID>
+    ```
+
+3. Fine-tune the model:
+
+    ```bash
+    together finetune create -t <FILE-ID> --suffix 1.0 -m togethercomputer/llama-2-7b-chat 
+    # Hyperparameters: https://docs.together.ai/docs/python-fine-tuning
+    # Models: https://docs.together.ai/docs/models-fine-tuning
+    # Resulting fine-tuning ID: <FT-ID>
+    ```
+
+4. Monitor progress [here](https://api.together.xyz/playground/finetuning) or in the CLI:
+
+    ```bash
+    # Get current and past fine-tune jobs
+    together finetune list
+
+    # Monitor fine-tune job events such as training-start, epoch-completed, job-completed, etc.
+    together finetune list-events <FT-ID>
+
+    # Retrieve job details and hyper-parameters
+    together finetune retrieve <FT-ID>
+
+    # Cancel a running job with
+    together finetune cancel <FT-ID>
+    ```
+
+## Deploying
+
+1. Go to the "Models" tab [here](https://api.together.xyz/playground) and click the "Run" button for the model to get an API URL.
+
+2. Go [here](https://poe.com/create_bot) and enter the API URL. Make sure to save the API Key.
