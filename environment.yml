@@ -1,0 +1,7 @@
+name: structured
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.11.4
+  - pip=23.2.1
