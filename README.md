@@ -36,16 +36,10 @@ An LLM for function extraction from Python docs.
 
 ## Fine-tuning
 
-Grab the relevant documentations which contains offline docs for pytorch, numpy, etc.:
-
-```bash
-git clone https://github.com/unknownue/PyTorch.docs.git
-```
-
 1. Create the dataset:
 
     ```bash
-    make create-dataset
+    python gen_data.py
     # Resulting file: data.jsonl
     ```
 
