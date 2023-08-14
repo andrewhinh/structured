@@ -1,0 +1,25 @@
+.
+├── LICENSE
+├── README.md
+├── docs
+│   └── example-prompts.md
+├── docs-scraper
+│   ├── node_modules
+│   │   ├── @types
+│   │   │   ├── cheerio -> ../.pnpm/@types+cheerio@0.22.31/node_modules/@types/cheerio
+│   │   │   └── node -> ../.pnpm/@types+node@20.5.0/node_modules/@types/node
+│   │   ├── axios -> .pnpm/axios@1.4.0/node_modules/axios
+│   │   ├── cheerio -> .pnpm/cheerio@1.0.0-rc.12/node_modules/cheerio
+│   │   ├── ts-node -> .pnpm/ts-node@10.9.1_@types+node@20.5.0_typescript@5.1.6/node_modules/ts-node
+│   │   └── typescript -> .pnpm/typescript@5.1.6/node_modules/typescript
+│   ├── package.json
+│   ├── pnpm-lock.yaml
+│   ├── scripts
+│   │   └── crawl.ts
+│   ├── src
+│   │   ├── index.ts
+│   │   └── scrape.ts
+│   └── tsconfig.json
+└── tree.txt
+
+13 directories, 10 files
