@@ -4,6 +4,8 @@ An LLM for function extraction from Python docs.
 
 ## Stack
 
+Built for the Custom LLMs Hackathon, where the sponsors included:
+
 - [Together.ai](https://together.ai/) for fine-tuning + inference.
 - [Poe](https://poe.com/) for front-end.
 
